@@ -8,26 +8,35 @@ public class Media{
         double s = 0;
         for(double i : datos)
             s += i;
-        return s/datos.length;
+        double n = datos.length;
+        System.out.println(s/n);
+        return s/n;
     }
 
     public static double arm(double [] datos){
-        double s = 0;
+        double s = 0.0;
         for(double i : datos)
-            s += 1/i;
-        return datos.length/s;
+            s += 1.0/i;
+  
+        double n = (double) datos.length;
+        return Double.valueOf(n)/Double.valueOf(s);
+
     }
 
     public static double geo(double [] datos){
-        double p = 1;
-        for(double i : datos)
+        double p = 1.0;
+        for(double i : datos){
             p *= i;
-        return Math.pow(p, 1/datos.length);   
+        }
+        double n = (double) datos.length;
+        return Math.pow(p, 1.0/n);   
     }
 
    
 
     public static double pond(double [] datos, double [] pesos){
+        if(pesos == null)
+            return 0;
         double d = 0;
         for(double w : pesos)
             d += w;
