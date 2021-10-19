@@ -66,7 +66,6 @@ public class Practica1{
             String resultado = Comparador.compara(v, b, c);
             System.out.println(resultado);
         }
-            
     }
 
     private static double evalua(String b, String [] valores, String [] pesos){
@@ -125,13 +124,11 @@ public class Practica1{
         String [] archivos = archivos(args);
 
         if(Arrays.asList(banderas).contains("-r") && Arrays.asList(banderas).contains("-t")){ 
-            System.out.print("Banderas invalidas, tonto");
+            System.out.print("Banderas invalidas");
             System.exit(0);
         }
-
-        for(String ar : archivos){
+        for(String ar : archivos)
             procesa(ar, banderas);
-        }
     }
 
 }
