@@ -23,13 +23,16 @@ public class Comparador{
 
     private static String max(double [] pcs){
         double max = 0;
+        int m = 0;
         int i = 0;
         for(double pc : pcs){
-            if(pc > max)
+            if(pc > max){
                 max = pc;
+                m = i;
+            }
             i++;
         }
-        return "PC" + i + ": " + max;
+        return "PC" + m + ": " + max;
     }
 
     private static String min(double [] pcs){

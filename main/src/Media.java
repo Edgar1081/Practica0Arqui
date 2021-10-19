@@ -9,7 +9,6 @@ public class Media{
         for(double i : datos)
             s += i;
         double n = datos.length;
-        System.out.println(s/n);
         return s/n;
     }
 
