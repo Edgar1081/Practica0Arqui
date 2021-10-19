@@ -11,7 +11,27 @@ import java.io.BufferedReader;
 
 public class Practica1{
     
-    private static void procesa(String a, String [] b){
+    private static void procesa(String archivo, String [] banderas){
+        ArrayList<String[]> ar = lee(archivo);
+        if(ar == null)
+            return;
+        String [] nm = ar.get(0);
+        String npcs = nm[0];
+        String np = nm[1];
+        String [] pesos = null;
+        if(Arrays.asList(banderas).contains("-p"))
+            pesos = ar.get(1);
+
+
+        int pcs = Integer.valueOf(npcs);
+        int pruebas = Integer.valueOf(np);
+
+        double [] nmp = new double[pruebas];
+
+        for(int i = 0; i < pcs; i++){
+            nmp = Arrays.stream(ar.get(i+2)).mapToDouble(Double::parseDouble).toArray();
+            
+        }
 
     }
 
@@ -34,7 +54,7 @@ public class Practica1{
         return c.trim().split(",");
     }
 
-    private static String [][] lee(String archivo){
+    private static ArrayList<String[]> lee(String archivo){
         try{
             FileInputStream fileIn = new FileInputStream(archivo);
             InputStreamReader isIn = new InputStreamReader(fileIn);
@@ -47,9 +67,11 @@ public class Practica1{
                 l.add(r);
             }
             in.close();
+            return l;
         }catch(IOException ioe){
             System.out.println("Archivo inválido, tonto");
         }
+        return null;
     }
 
     public static void main(String args []){
