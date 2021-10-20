@@ -14,10 +14,12 @@ Para correr correctamente el programa hay que ejecutar:
 ```
 $ java main.src.Practica1  archivoEntrada.txt banderas
 
-	banderas -> Las banderas válidas son −g, −p, −a, −m −r, −t , que hacen referencia a usar la media geométrica o la media 
-	ponderada o la media aritmética o la media armónica a si los valores en el archivo miden rendimiento o tiempo de respuesta.
+	banderas -> Las banderas válidas son −g, −p, −a, −m, que hacen referencia a usar la media geométrica o la media ponderada o la media aritmética o la media armónica.
+	-r o -t si los valores en el archivo miden rendimiento o tiempo de respuesta. Si no se especifica la bandera -t o -r, pot default se toma como -t.
 	
-	archivoEntrada.txt -> Archivo de donde se van a leer los valores de las pruebas de cada computadora. Se acepta más de un archivo.
+	archivosEntrada.txt -> Archivos de donde se van a leer los valores de las pruebas de cada computadora. Se acepta más de un archivo.
+
+	No importa el orden ni cantidad de archivos o banderas.
 ```
 ## Autores
 - [Melissa Vázquez González](https://github.com/melivg)

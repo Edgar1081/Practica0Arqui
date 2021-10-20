@@ -159,7 +159,8 @@ public class Practica1{
     }
 
     private static void uso(){
-        System.out.println("Uso: [-a | -m | -g | -p] [files]");
+        System.out.println("Uso: [-a | -m | -g | -p] [-t | -r] [files]");
+        System.exit(0);
     }
 
     public static void main(String args []){
