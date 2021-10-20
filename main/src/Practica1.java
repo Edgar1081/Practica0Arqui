@@ -153,14 +153,21 @@ public class Practica1{
             in.close();
             return l;
         }catch(IOException ioe){
-            System.out.println("Archivo inválido, tonto");
+            System.out.println("Archivo inválido");
         }
         return null;
+    }
+
+    private static void uso(){
+        System.out.println("Uso: [-a | -m | -g | -p] [files]");
     }
 
     public static void main(String args []){
         String [] banderas = banderas(args);
         String [] archivos = archivos(args);
+
+        if(args.length < 2)
+            uso();
 
         if(Arrays.asList(banderas).contains("-r") && Arrays.asList(banderas).contains("-t")){ 
             System.out.print("Banderas invalidas");
