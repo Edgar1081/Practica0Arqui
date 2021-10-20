@@ -1,12 +1,7 @@
 package main.src;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.sound.midi.SysexMessage;
-
-import main.src.Comparador;
-
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.io.File;
@@ -15,9 +10,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
-
 public class Practica1{
     
+    /**
+     * Procesa cada archivo recibido
+     * @param archivo Ruta del archivo a leer.
+     * @param banderas Arreglo con las banderas de entrada.
+    */
     private static void procesa(String archivo, String [] banderas){
         ArrayList<String[]> ar = lee(archivo);
         if(ar == null)
@@ -55,6 +54,17 @@ public class Practica1{
         maneja(tr, medias, npcs, banderas);
     }
 
+    /**
+     * Maneja los casos cuando se ingresaron valores de tiempo
+     * o de rendimiento. Aplica el cálculo de cada media recibida
+     * en las banderas e imprime el resultado de la comparación
+     * dada por -t o -r
+     * @param b bandera -t p -r.
+     * @param medias diccionario con todas medias solicitadas
+     * en las banderas por cada una de las computadoras recibidas.
+     * @param n número de computadoras de la entrada.
+     * @param banderas Arreglo con las banderas de la entrada.
+    */
     private static void maneja(String b, Map<String, Double> medias, int n, String [] banderas){
         double [] v = new double [n];
 
@@ -68,6 +78,18 @@ public class Practica1{
         }
     }
 
+    /**
+     * Calcula la media dada por la bandera b, usando
+     * el arreglo de datos y los pesos en caso de ser
+     * necesario.
+     * @param b bandera con la media solicitada.
+     * @param valores Arrglo con los valores de una
+     * computadora.
+     * @param pesos Arreglo con los pesos para
+     * calcular la media ponderada en caso de que
+     * se requiera.
+     * @return double con el calculo de la media que pide la bandera.
+    */
     private static double evalua(String b, String [] valores, String [] pesos){
         double [] v = Arrays.stream(valores).mapToDouble(Double::parseDouble).toArray();
         double [] w = null;
@@ -83,6 +105,11 @@ public class Practica1{
         }
     }
 
+    /**
+     * Regresa un arreglo unicamente con las banderas
+     * @param args Arreglo con los argumentos de main
+     * @return String [] Arreglo de banderas
+     */
     private static String [] banderas(String args []){
         String c = "";
         for(String s : args)
@@ -91,6 +118,12 @@ public class Practica1{
         return c.trim().split(",");
     }
 
+    /**
+     * Regresa las rutas de los archivos en un
+     * arreglo.
+     * @param args Arreglo con los argumentos de main
+     * @return double de la media aritmética.
+     */
     private static String [] archivos(String args []){
         String c = "";
         for(String s : args)
@@ -99,6 +132,12 @@ public class Practica1{
         return c.trim().split(",");
     }
 
+    /**
+     * Regresa el valor de la media aritmetica
+     * @param archivo ruta del archivo a leer.
+     * @return ArrayList<String[]> Lista con arreglos
+     * correspondientes a cada linea del archivo.
+    */
     private static ArrayList<String[]> lee(String archivo){
         try{
             FileInputStream fileIn = new FileInputStream(archivo);
